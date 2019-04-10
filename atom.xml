@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CRIST兴趣使然</title>
+  
+  <subtitle>要努力到秃头哦ㄟ( ▔, ▔ )ㄏ  　</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://qingxuanmingye.github.io/"/>
+  <updated>2019-04-09T12:09:23.376Z</updated>
+  <id>https://qingxuanmingye.github.io/</id>
+  
+  <author>
+    <name>Crist</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客初期搭建完成</title>
+    <link href="https://qingxuanmingye.github.io/2019/04/09/%E5%8D%9A%E5%AE%A2%E5%88%9D%E6%9C%9F%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%88%90/"/>
+    <id>https://qingxuanmingye.github.io/2019/04/09/博客初期搭建完成/</id>
+    <published>2019-04-09T11:26:15.000Z</published>
+    <updated>2019-04-09T12:09:23.376Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;经过了三天的时间，博客雏形终于完成了。本应该是很容易解决达成的目标。走了各种弯路，见证了好多项目的兴衰。不得不感慨一句，下次如果再没有收罗足够的信息就开始盲目做。我就是瓜皮。&lt;em&gt;(¦3」∠)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;虽然做了很多无用功，功能改来改去。bug大概遇到30多
+        
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://qingxuanmingye.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="Next" scheme="https://qingxuanmingye.github.io/tags/Next/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://qingxuanmingye.github.io/2019/04/06/hello-world/"/>
+    <id>https://qingxuanmingye.github.io/2019/04/06/hello-world/</id>
+    <published>2019-04-06T08:59:49.592Z</published>
+    <updated>2019-04-06T08:59:49.594Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
