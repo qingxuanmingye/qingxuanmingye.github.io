@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qingxuanmingye.github.io/"/>
-  <updated>2019-04-09T12:09:23.376Z</updated>
+  <updated>2019-04-11T04:27:23.637Z</updated>
   <id>https://qingxuanmingye.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日锻炼</title>
+    <link href="https://qingxuanmingye.github.io/2019/04/11/%E6%AF%8F%E6%97%A5%E9%94%BB%E7%82%BC/"/>
+    <id>https://qingxuanmingye.github.io/2019/04/11/每日锻炼/</id>
+    <published>2019-04-11T04:19:58.000Z</published>
+    <updated>2019-04-11T04:27:23.637Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;每日锻炼&quot;&gt;&lt;a href=&quot;#每日锻炼&quot; class=&quot;headerlink&quot; title=&quot;每日锻炼&quot;&gt;&lt;/a&gt;每日锻炼&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;身体锻炼&lt;ul&gt;
+&lt;li&gt;晨跑 5km + 晨读&lt;/li&gt;
+&lt;li&gt;俯卧撑、深蹲、仰卧起坐 |
+        
+      
+    
+    </summary>
+    
+      <category term="-计划" scheme="https://qingxuanmingye.github.io/categories/%E8%AE%A1%E5%88%92/"/>
+    
+    
+      <category term="-杂谈" scheme="https://qingxuanmingye.github.io/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>博客初期搭建完成</title>
