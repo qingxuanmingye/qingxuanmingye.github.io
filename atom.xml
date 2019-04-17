@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qingxuanmingye.github.io/"/>
-  <updated>2019-04-16T14:43:45.362Z</updated>
+  <updated>2019-04-17T12:03:33.255Z</updated>
   <id>https://qingxuanmingye.github.io/</id>
   
   <author>
@@ -17,9 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>leetcode（16，17，18，20，22）</title>
+    <link href="https://qingxuanmingye.github.io/2019/04/17/leetcode%EF%BC%8816%EF%BC%8C17%EF%BC%8C18%EF%BC%8C20%EF%BC%8C22%EF%BC%89/"/>
+    <id>https://qingxuanmingye.github.io/2019/04/17/leetcode（16，17，18，20，22）/</id>
+    <published>2019-04-17T01:33:52.000Z</published>
+    <updated>2019-04-17T12:03:33.255Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今日总结：做题效果不是很好，出现各种状况。感觉不是很难的题，就是陷入思维误区。还有两道题（18，22），暂且搁置。有点窝火，再努力吧。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;16-最接近的三数之和（C）&quot;&gt;&lt;a href=&quot;#16-最接近的三数之和（C）&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="日常打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%97%A5%E5%B8%B8%E6%89%93%E5%8D%A1/"/>
+    
+    
+      <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode日常打卡11~15</title>
-    <link href="https://qingxuanmingye.github.io/2019/04/16/leetcode%E6%97%A5%E5%B8%B8%E6%89%93%E5%8D%A111-15/"/>
-    <id>https://qingxuanmingye.github.io/2019/04/16/leetcode日常打卡11-15/</id>
+    <link href="https://qingxuanmingye.github.io/2019/04/16/leetcode%EF%BC%8811~15%EF%BC%89/"/>
+    <id>https://qingxuanmingye.github.io/2019/04/16/leetcode（11~15）/</id>
     <published>2019-04-16T04:52:45.000Z</published>
     <updated>2019-04-16T14:43:45.362Z</updated>
     
@@ -47,7 +75,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/12/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     <id>https://qingxuanmingye.github.io/2019/04/12/动态规划/</id>
     <published>2019-04-12T07:28:57.000Z</published>
-    <updated>2019-04-15T11:22:15.690Z</updated>
+    <updated>2019-04-17T01:01:52.262Z</updated>
     
     <summary type="html">
     
@@ -61,7 +89,7 @@
     
     </summary>
     
-      <category term="算法" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="动态规划" scheme="https://qingxuanmingye.github.io/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
       <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
