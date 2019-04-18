@@ -294,6 +294,197 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/18/leetcode（25-29）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Crist">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CRIST兴趣使然">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/leetcode（25-29）/" itemprop="url">leetcode（25~29）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T09:36:18+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常打卡/" itemprop="url" rel="index">
+                    <span itemprop="name">日常打卡</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  877 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>菜：26（D），27（D=），<strong>28</strong>（<strong>A+</strong>/E）</p>
+<p>中：<strong>29（B+）</strong></p>
+<p>死：25（B）</p>
+<p>今日总结：</p>
+<hr>
+<h4 id="25-k个一组翻转链表（B）"><a href="#25-k个一组翻转链表（B）" class="headerlink" title="25. k个一组翻转链表（B）"></a><a href="https://leetcode-cn.com/problems/reverse-nodes-in-k-group/" target="_blank" rel="noopener">25. k个一组翻转链表</a>（B）</h4><p>分析：久违的链表题，虽然是hard难度，但是并没有需要特别在意的地方。对给定的值进行分情况讨论，翻转链表的方式也是经常使用的。链表整合时的方法还是要多熟悉一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseKGroup</span><span class="params">(self, head: ListNode, k: int)</span> -&gt; ListNode:</span></span><br><span class="line">        dummy = jump = ListNode(<span class="number">0</span>)</span><br><span class="line">        dummy.next = r = l = head</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> r <span class="keyword">and</span> count &lt; k:      <span class="comment">#用r来定位翻转范围</span></span><br><span class="line">                r = r.next</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> count == k:</span><br><span class="line">                pre, cur = r, l</span><br><span class="line">                <span class="keyword">for</span> _ <span class="keyword">in</span> range(k):</span><br><span class="line">                    cur.next, cur, pre = pre, cur.next, cur</span><br><span class="line">                jump.next, jump, l = pre, l, r   <span class="comment">#初始l的位置，然后将翻转后的链表转出。</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> dummy.next</span><br></pre></td></tr></table></figure>
+<h4 id="26-删除排序数组中的重复项（D）"><a href="#26-删除排序数组中的重复项（D）" class="headerlink" title="26. 删除排序数组中的重复项（D）"></a><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">26. 删除排序数组中的重复项</a>（D）</h4><p>分析：双指针的用法如果是第一次接触。还是觉得蛮有趣的。很好理解，慢指针记录当前不同元素个数，快指针对比寻找非重复元素（此题就是比较相邻即可），当找到非重复的赋值给慢指针对应位置即可。</p>
+<p>这个题的引用法，还是挺有趣的。返回int。输出list。需要更改nums</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        length = <span class="number">1</span>        <span class="comment">#length默认nums[0]不需要变化。</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != nums[i+<span class="number">1</span>]:</span><br><span class="line">                nums[length] = nums[i+<span class="number">1</span>]</span><br><span class="line">                length = length + <span class="number">1</span></span><br><span class="line">                </span><br><span class="line">        <span class="keyword">return</span> length</span><br></pre></td></tr></table></figure>
+<h4 id="27-移除元素（D-）"><a href="#27-移除元素（D-）" class="headerlink" title="27. 移除元素（D-）"></a><a href="https://leetcode-cn.com/problems/remove-element/" target="_blank" rel="noopener">27. 移除元素</a>（D-）</h4><p>分析：上同，没什么变化。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeElement</span><span class="params">(self, nums: List[int], val: int)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        length = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != val:</span><br><span class="line">                nums[length] = nums[i]</span><br><span class="line">                length += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> length</span><br></pre></td></tr></table></figure>
+<h4 id="28-实现strStr-（A-E）"><a href="#28-实现strStr-（A-E）" class="headerlink" title="28. 实现strStr()（A+/E）"></a><a href="https://leetcode-cn.com/problems/implement-strstr/" target="_blank" rel="noopener">28. 实现strStr()</a>（A+/E）</h4><p>分析：还是比较有争议的一道题，涉及是否使用内置函数。如果，单纯算法角度。应该使用KMP算法。难度升高到hard。不管怎样学习一下，KMP算法。内置函数方法直接用find。太简单就省略了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">strStr</span><span class="params">(self, haystack: str, needle: str)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(haystack) - len(needle) + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> haystack[i:i+len(needle)] == needle:</span><br><span class="line">                <span class="keyword">return</span> i</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<p>KMP版本<strong>（A+）</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">strStr</span><span class="params">(self, haystack: str, needle: str)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> haystack == <span class="literal">None</span> <span class="keyword">or</span> needle == <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        <span class="comment">#generate next array, need O(n) time</span></span><br><span class="line">        i, j, m, n = <span class="number">-1</span>, <span class="number">0</span>, len(haystack), len(needle)</span><br><span class="line">        next = [<span class="number">-1</span>] * n</span><br><span class="line">        <span class="keyword">while</span> j &lt; n - <span class="number">1</span>:  </span><br><span class="line">            <span class="comment">#needle[k] stands for prefix, neelde[j] stands for postfix</span></span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">-1</span> <span class="keyword">or</span> needle[i] == needle[j]:   </span><br><span class="line">                i, j = i + <span class="number">1</span>, j + <span class="number">1</span></span><br><span class="line">                next[j] = i</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i = next[i]</span><br><span class="line">        <span class="comment">#check through the haystack using next, need O(m) time</span></span><br><span class="line">        i = j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; m <span class="keyword">and</span> j &lt; n:</span><br><span class="line">            <span class="keyword">if</span> j == <span class="number">-1</span> <span class="keyword">or</span> haystack[i] == needle[j]:</span><br><span class="line">                i, j = i + <span class="number">1</span>, j + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j = next[j]</span><br><span class="line">        <span class="keyword">if</span> j == n:</span><br><span class="line">            <span class="keyword">return</span> i - j</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<h4 id="29-两数相除（B-）"><a href="#29-两数相除（B-）" class="headerlink" title="29. 两数相除（B+）"></a><a href="https://leetcode-cn.com/problems/divide-two-integers/" target="_blank" rel="noopener">29. 两数相除</a>（B+）</h4><p>分析：注意这道题的要求。不可以使用乘，除，mod运算符。想了一下，大概使用数位运算吧。代码还是不太会实现。借鉴一下。<strong>初次使用这种方式，还是给与重视一下。</strong></p>
+<p>&lt;&lt; 移位运算符。移位是指二进制。左移一，相当于变大一倍。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">divide</span><span class="params">(self, dividend: int, divisor: int)</span> -&gt; int:</span></span><br><span class="line">        positive = (dividend &lt; <span class="number">0</span>) <span class="keyword">is</span> (divisor &lt; <span class="number">0</span>)   <span class="comment">#判断符号是否相等。在结果处添加符号。</span></span><br><span class="line">        dividend, divisor = abs(dividend), abs(divisor)</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> dividend &gt;= divisor:   <span class="comment">#限定继续迭代分化问题</span></span><br><span class="line">            temp, i = divisor, <span class="number">1</span>          <span class="comment">#由1倍开始计算。</span></span><br><span class="line">            <span class="keyword">while</span> dividend &gt;= temp:</span><br><span class="line">                dividend -= temp</span><br><span class="line">                res += i</span><br><span class="line">                i &lt;&lt;= <span class="number">1</span>        <span class="comment">#i和temp同时变大一倍。就相当于快速缩小范围。</span></span><br><span class="line">                temp &lt;&lt;= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> positive:   <span class="comment">#此处判断符号</span></span><br><span class="line">            res = -res</span><br><span class="line">        <span class="keyword">return</span> min(max(<span class="number">-2147483648</span>, res), <span class="number">2147483647</span>)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/17/leetcode（16，17，18，20，22）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -379,7 +570,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k 字
+                  1.3k 字
                 </span>
               
 
@@ -395,7 +586,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4 分钟
+                  6 分钟
                 </span>
               
             </div>
@@ -422,7 +613,7 @@
 <hr>
 <h4 id="16-最接近的三数之和（C）"><a href="#16-最接近的三数之和（C）" class="headerlink" title="16. 最接近的三数之和（C）"></a><a href="https://leetcode-cn.com/problems/3sum-closest/" target="_blank" rel="noopener">16. 最接近的三数之和</a>（C）</h4><p>分析：跟之前的题很相识，一个求和，这个是求近似。直观想法还是老套路，排序，然后遍历，比较。</p>
 <p>方法一：排序遍历比较，注意下，近似使用abs求绝对值。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">threeSumClosest</span><span class="params">(self, nums: List[int], target: int)</span> -&gt; int:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        <span class="keyword">if</span> len(nums)&lt;<span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        gol_ans = nums[<span class="number">0</span>]+nums[<span class="number">1</span>]+nums[<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-2</span>):</span><br><span class="line">            j = i+<span class="number">1</span></span><br><span class="line">            k = len(nums)<span class="number">-1</span></span><br><span class="line">            <span class="keyword">while</span> j&lt;k:</span><br><span class="line">                cur_ans = nums[i]+nums[j]+nums[k]</span><br><span class="line">                <span class="keyword">if</span> cur_ans == target:</span><br><span class="line">                    <span class="keyword">return</span> cur_ans</span><br><span class="line">                <span class="keyword">if</span> abs(cur_ans-target) &lt; abs(gol_ans-target):</span><br><span class="line">                    gol_ans=cur_ans</span><br><span class="line">                <span class="keyword">if</span> cur_ans &gt; target:</span><br><span class="line">                    k-=<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    j+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> gol_ans</span><br></pre></td></tr></table></figure>
 <p>方法二：优化运算时间，想法就是优先考虑两端情况，最大最小。然后其余情况正常，最后将结果。绝对值排序。选出最优。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">threeSumClosest</span><span class="params">(self, nums: List[int], target: int)</span> -&gt; int:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        closest = []</span><br><span class="line">        length = len(nums)</span><br><span class="line">        <span class="keyword">for</span> i, num <span class="keyword">in</span> enumerate(nums[<span class="number">0</span>:<span class="number">-2</span>]):</span><br><span class="line">            l,r = i+<span class="number">1</span>, length<span class="number">-1</span></span><br><span class="line">            <span class="keyword">if</span> num+nums[r]+nums[r<span class="number">-1</span>] &lt; target:</span><br><span class="line">                closest.append(num+nums[r]+nums[r<span class="number">-1</span>])</span><br><span class="line">            <span class="keyword">elif</span> num+nums[l]+nums[l+<span class="number">1</span>] &gt; target:</span><br><span class="line">                closest.append(num+nums[l]+nums[l+<span class="number">1</span>])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">while</span> l&lt;r:</span><br><span class="line">                    closest.append(num+nums[r]+nums[l])</span><br><span class="line">                    <span class="keyword">if</span> num+nums[l]+nums[r] &gt; target:</span><br><span class="line">                        r -= <span class="number">1</span></span><br><span class="line">                    <span class="keyword">elif</span> num+nums[l]+nums[r] &lt; target:</span><br><span class="line">                        l += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">return</span> target</span><br><span class="line">        closest.sort(key=<span class="keyword">lambda</span> x:abs(x-target))</span><br><span class="line">        <span class="keyword">return</span> closest[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <h4 id="17-电话号码的字母组合（C）"><a href="#17-电话号码的字母组合（C）" class="headerlink" title="17. 电话号码的字母组合（C）"></a><a href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener">17. 电话号码的字母组合</a>（C）</h4><p>分析：每个数字列出对应字母，先读一个数字放入列表。再依次拼接。</p>
@@ -437,7 +628,7 @@
 <li>target = target - nums[i]来调用nSum（）方法。递归</li>
 <li>注意列表的拼接。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fourSum</span><span class="params">(self, nums: List[int], target: int)</span> -&gt; List[List[int]]:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">nSum</span><span class="params">(nums, target, n, result, results)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> len(nums) &lt; n <span class="keyword">or</span> n &lt; <span class="number">2</span> <span class="keyword">or</span> n * nums[<span class="number">0</span>] &gt; target <span class="keyword">or</span> n * nums[<span class="number">-1</span>] &lt; target:</span><br><span class="line">                <span class="keyword">return</span> []</span><br><span class="line">            <span class="keyword">if</span> n == <span class="number">2</span>:</span><br><span class="line">                begin, end = <span class="number">0</span>, len(nums)<span class="number">-1</span></span><br><span class="line">                <span class="keyword">while</span> begin &lt; end:</span><br><span class="line">                    sums = nums[begin] + nums[end]</span><br><span class="line">                    <span class="keyword">if</span> sums &lt; target:</span><br><span class="line">                        begin += <span class="number">1</span></span><br><span class="line">                    <span class="keyword">elif</span> sums &gt; target:</span><br><span class="line">                        end -= <span class="number">1</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        plet  = [nums[begin], nums[end]]</span><br><span class="line">                        results.append(result + plet)</span><br><span class="line">                        <span class="keyword">while</span> begin &lt; end <span class="keyword">and</span> nums[begin] == plet[<span class="number">0</span>]: begin += <span class="number">1</span></span><br><span class="line">                        <span class="keyword">while</span> begin &lt; end <span class="keyword">and</span> nums[end] == plet[<span class="number">1</span>]: end -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums) - n + <span class="number">1</span>):</span><br><span class="line">                    <span class="keyword">if</span> (i &gt; <span class="number">0</span> <span class="keyword">and</span> nums[i] == nums[i<span class="number">-1</span>]) <span class="keyword">or</span> (nums[i] + (n<span class="number">-1</span>)*nums[len(nums)<span class="number">-1</span>]&lt;target):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> n * nums[i] &gt; target:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    <span class="keyword">if</span> n * nums[i] == target <span class="keyword">and</span> i + n - <span class="number">1</span> &lt; len(nums) <span class="keyword">and</span> nums[i+n<span class="number">-1</span>] == nums[i]:</span><br><span class="line">                        plet = [nums[i]] * n</span><br><span class="line">                        results.append(result + plet)</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    nSum(nums[i + <span class="number">1</span>:], target - nums[i], n - <span class="number">1</span>, result + [nums[i]], results)</span><br><span class="line">        results = []</span><br><span class="line">        nums.sort()</span><br><span class="line">        nSum(nums, target, <span class="number">4</span>, [], results)</span><br><span class="line">        <span class="keyword">return</span> results</span><br></pre></td></tr></table></figure>
 <h4 id="20-有效的括号（D）"><a href="#20-有效的括号（D）" class="headerlink" title="20. 有效的括号（D）"></a><a href="https://leetcode-cn.com/problems/valid-parentheses/" target="_blank" rel="noopener">20. 有效的括号</a>（D）</h4><p>分析：字符串问题，很好实现。</p>
 <p>第一种，利用replace直接替换。不需要考虑其他位置。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, s: str)</span> -&gt; bool:</span></span><br><span class="line">        n = len(s)</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> n % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">while</span> <span class="string">'()'</span> <span class="keyword">in</span> s <span class="keyword">or</span> <span class="string">'[]'</span> <span class="keyword">in</span> s <span class="keyword">or</span> <span class="string">'&#123;&#125;'</span> <span class="keyword">in</span> s:</span><br><span class="line">            s = s.replace(<span class="string">'()'</span>,<span class="string">""</span>).replace(<span class="string">'[]'</span>,<span class="string">""</span>).replace(<span class="string">'&#123;&#125;'</span>,<span class="string">""</span>)</span><br><span class="line">        <span class="keyword">return</span> s == <span class="string">""</span></span><br></pre></td></tr></table></figure>
@@ -1511,7 +1702,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1533,7 +1724,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1616,7 +1807,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">����ȫվ��5k��</span>
+  <span class="post-count">����ȫվ��6.2k��</span>
 </div>-->
 
 
