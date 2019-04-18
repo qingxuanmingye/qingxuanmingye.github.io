@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qingxuanmingye.github.io/"/>
-  <updated>2019-04-18T11:48:08.508Z</updated>
+  <updated>2019-04-18T14:52:33.526Z</updated>
   <id>https://qingxuanmingye.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>KMP算法梳理</title>
+    <link href="https://qingxuanmingye.github.io/2019/04/18/KMP%E7%AE%97%E6%B3%95%E6%A2%B3%E7%90%86/"/>
+    <id>https://qingxuanmingye.github.io/2019/04/18/KMP算法梳理/</id>
+    <published>2019-04-18T13:33:51.000Z</published>
+    <updated>2019-04-18T14:52:33.526Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;刷LeetCode算法题的时候，碰到了这个KMP。觉得还有点意思。相对来说还是有点难度，就做个笔记梳理一下。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;KMP算法则可以将时间复杂度下降到O(m+n),和O(m*n)相比明显下降。&lt;/p&gt;
+&lt;p&gt;A，B 》 j，i  不等 为0    
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="（A+）" scheme="https://qingxuanmingye.github.io/tags/%EF%BC%88A-%EF%BC%89/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode（25~29）</title>
     <link href="https://qingxuanmingye.github.io/2019/04/18/leetcode%EF%BC%8825-29%EF%BC%89/"/>
     <id>https://qingxuanmingye.github.io/2019/04/18/leetcode（25-29）/</id>
     <published>2019-04-18T01:36:18.000Z</published>
-    <updated>2019-04-18T11:48:08.508Z</updated>
+    <updated>2019-04-18T13:25:41.860Z</updated>
     
     <summary type="html">
     
@@ -43,7 +72,7 @@
       <category term="日常打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%97%A5%E5%B8%B8%E6%89%93%E5%8D%A1/"/>
     
     
-      <category term="leetcode" scheme="https://qingxuanmingye.github.io/tags/leetcode/"/>
+      <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
     
   </entry>
   
