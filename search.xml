@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode（栈）]]></title>
+    <url>%2F2019%2F04%2F20%2Fleetcode%EF%BC%88%E6%A0%88%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[菜 682(E) 中 71(C-) 、394(C+) 危 42(B+) 、84(A) 栈作为一种数据结构，是一种只能在一端进行插入和删除操作的特殊线性表。它按照先进后出的原则存储数据，先进入的数据被压入栈底，最后的数据在栈顶，需要读数据的时候从栈顶开始弹出数据（最后一个数据被第一个读出来）。栈具有记忆作用，对栈的插入与删除操作中，不需要改变栈底指针。 小练总结：栈的题相对来说比较简单，需要注意的问题就是模型转化跟栈结合时需要细心一些。实际问题转化为算法时，逻辑上的判断至关重要。 682. 棒球比赛（E）分析：栈初试身手。选了一道简单难度的题。嗯，果然很简单。读清题意，解答很容易的。栈最后位，表示就是用队列的[-1] 123456789101112131415class Solution: def calPoints(self, ops: List[str]) -&gt; int: points = [] i = 0 while i &lt; len(ops): if ops[i] == 'C': points.pop() elif ops[i] == '+': points.append(points[-1] + points[-2]) elif ops[i] == 'D': points.append(points[-1] * 2) else: points.append(int(ops[i])) i += 1 return sum(points) 71. 简化路径（C-）分析：本质上还是一道简单的栈表示。题意理解上稍微复杂一点。如果不熟悉Linux路径表示，需要细心看一下。..删除的是前面出现的路径。整体思路就是分段，去空，判断，构建栈。最后别忘了拼接。 1234567891011121314151617class Solution: def simplifyPath(self, path: str) -&gt; str: l = path.split('/') l = [i for i in l if i] stack = [] while l: c = l.pop(0) if c == '.': continue elif c == '..': if stack: stack.pop(-1) else: stack.append(c) return '/'+'/'.join(stack) 394. 字符串解码（C+）分析：题意容易理解。关键点在于，数字和字母构建双重栈。如果没有数字添加默认1，最后依次匹配相乘。关键点在于，字符拼接时注意翻转。因为栈后进先出。 123456789101112131415161718192021222324252627class Solution: def decodeString(self, s: str) -&gt; str: result = '' stack = []#模拟栈 for i in s: if i != ']': stack.append(i) else: temp1 = []#存字母 while stack[-1] != "[": temp1.append(stack.pop()) temp1_list = list(temp1) stack.pop()#去除[ temp2 = []#存数字 if len(stack)!=0: while stack[-1] in "0123456789": #做循环是为了防止高位数出现 temp2.append(stack.pop()) if len(stack)==0: break if temp2 == []: temp2= ['1'] stack.append(eval("".join(temp2[::-1]))*"".join(temp1[::-1]))#先反转列表形成字符串，然后相乘，添加到stack for i in stack: result += i return result 遇事不决用正则。正则用好了，超级容易实现，然鹅！这道题考察栈。 12345class Solution(object): def decodeString(self, s): while '[' in s: s = re.sub(r"(\d+)\[(\w+)\]",lambda m:int(m.group(1))*m.group(2),s) return s 42. 接雨水（B+）分析：hard难度，就有点意思了。感觉更多的是，找到规律。两边分别遍历一下，墙和水被加了两次，再减去墙。最后减去整体面积。 12345678910class Solution: def trap(self, height: List[int]) -&gt; int: ans = 0 h1 = 0 h2 = 0 for i in range(len(height)): h1 = max(h1,height[i]) h2 = max(h2,height[-i-1]) ans = ans + h1 + h2 -height[i] return ans - len(height)*h1 84. 柱状图中最大的矩形（A）分析：感觉许久未逢的几何生疏感，想了一阵才缕清算法思路，虽然对步骤还有点违和感。 算法书写不难，不过这个思路的构建还是需要学习一下的。关键点在于，右侧高于左侧，放入栈中。低于左侧，就开始计算面积。判断，左右边界，求面积。是i中的高，还是栈中的高，直接影响面积。最后加个0是收尾计算。 1234567891011class Solution: def largestRectangleArea(self, heights: List[int]) -&gt; int: heights.append(0) #控制边界做最后收尾验算 stack = [-1] res = 0 for i in range(len(heights)): while stack and heights[stack[-1]]&gt;heights[i]: #如果栈中圆柱高于新圆柱 s = stack.pop() #i&lt;i-1.右边界为i-1出栈。 res = max(res,(i-stack[-1]-1)*heights[s]) stack.append(i) return res]]></content>
+      <categories>
+        <category>日常打卡</category>
+      </categories>
+      <tags>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode（脑筋急转弯）]]></title>
+    <url>%2F2019%2F04%2F19%2Fleetcode%EF%BC%88%E8%84%91%E7%AD%8B%E6%80%A5%E8%BD%AC%E5%BC%AF%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[菜 292(E) 中 319(D) 777(B+) 危 今天就算是娱乐专场了。三道脑筋急转弯。 加餐：zip函数（） 292. Nim游戏（E）分析：额。一开始有点懵，这道题要考什么啊。转弯转在哪里啊。想到了4这个数，加个判断就完成了。 123456class Solution: def canWinNim(self, n: int) -&gt; bool: if n % 4 == 0: return False else: return True 319. 灯泡开关（D）分析：这道题，有点意思。需要考虑到开关状态跟因子数相关。 （1）第i轮时，被切换的灯泡位置是i的倍数。（2）由（1）得出，对于第p个灯泡来说，只有其第“因子”轮才会切换，若其有q个因子，则最终被切换q次。因为初始状态是关闭状态，那么因子数是奇数的灯泡最终是亮着的。（3）只有平方数的因子个数不是成对出现，举例：4=1*4,2*2，其因子是1,2,4。（4）那么题目最终转化为1~n里平方数的个数，进而转化为对n开平方根，向下取整即可。 123class Solution: def bulbSwitch(self, n: int) -&gt; int: return math.floor(n ** 0.5) 777. 在LR字符串中交换相邻字符（B+）L只能跨越X左移，R只能跨越X又移，LR相互之间不可以移动 用两个计数单位分别记录，LX和XR XL和RX。一个正一个负，来比较抵消。 需要注意的是，使用到了zip()函数，扩展在下面。 12345678910111213141516171819202122class Solution: def canTransform(self, start: str, end: str) -&gt; bool: # left move l right move r end_has_l = 0 start_has_r = 0 for s, e in zip(start, end): #zip打包成元组（取最短的） if s == e: continue elif end_has_l and s == "L" and e == "X": # start can move this l to left end_has_l -= 1 elif start_has_r and s == "X" and e == "R": # start has r to move right start_has_r -= 1 elif e == "L": end_has_l += 1 elif s == "R": start_has_r += 1 continue else: return False return start_has_r == end_has_l == 0 zip()函数的使用 a = [1,2,3] b = [4,5,6] c = [4,5,6,7,8] zipped = zip(a,b) # 打包为元组的列表[(1, 4), (2, 5), (3, 6)] zip(a,c) # 元素个数与最短的列表一致[(1, 4), (2, 5), (3, 6)] zip(zipped) # 与 zip 相反，zipped 可理解为解压，返回二维矩阵式[(1, 2, 3), (4, 5, 6)] 12345678910&gt;&gt;&gt;nums = [&apos;flower&apos;,&apos;flow&apos;,&apos;flight&apos;]&gt;&gt;&gt;for i in zip(*nums):&gt;&gt;&gt; print(i)&gt;&gt;&gt; &gt;&gt;&gt;&gt;&gt; &gt;&gt;&gt;(&apos;f&apos;, &apos;f&apos;, &apos;f&apos;)&gt;&gt;&gt;(&apos;l&apos;, &apos;l&apos;, &apos;l&apos;)&gt;&gt;&gt;(&apos;o&apos;, &apos;o&apos;, &apos;i&apos;)&gt;&gt;&gt;(&apos;w&apos;, &apos;w&apos;, &apos;g&apos;) &gt;&gt;&gt;]]></content>
+      <categories>
+        <category>每日打卡</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode打卡]]></title>
+    <url>%2F2019%2F04%2F19%2Fleetcode%E6%89%93%E5%8D%A1%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[KMP算法梳理]]></title>
     <url>%2F2019%2F04%2F18%2FKMP%E7%AE%97%E6%B3%95%E6%A2%B3%E7%90%86%2F</url>
     <content type="text"><![CDATA[刷LeetCode算法题的时候，碰到了这个KMP。觉得还有点意思。相对来说还是有点难度，就做个笔记梳理一下。 KMP算法则可以将时间复杂度下降到O(m+n),和O(m*n)相比明显下降。 A，B 》 j，i 不等 为0 A，C 》 j，i 不等为0 一直到 A，A 》 j，i 相等记作1.然后同时进一位。B，B 》 j，i 相等 前位置加1 。C ， D不等，往前推。。A，D也不等，记作0 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647def KMP_algorithm(string, substring): ''' KMP字符串匹配的主函数 若存在字串返回字串在字符串中开始的位置下标，或者返回-1 ''' pnext = gen_pnext(substring) n = len(string) m = len(substring) i, j = 0, 0 while (i&lt;n) and (j&lt;m): if (string[i]==substring[j]): i += 1 j += 1 elif (j!=0): j = pnext[j-1] else: i += 1 if (j == m): return i-j else: return -1 def gen_pnext(substring): """ 构造临时数组pnext """ index, m = 0, len(substring) pnext = [0]*m i = 1 while i &lt; m: if (substring[i] == substring[index]): pnext[i] = index + 1 index += 1 i += 1 elif (index!=0): index = pnext[index-1] else: pnext[i] = 0 i += 1 return pnextif __name__ == "__main__": string = 'abcxabcdabcdabcy' substring = 'abcdabcy' out = KMP_algorithm(string, substring) print(out) 和主字符串对比时，如果不同，看前一位pnext值对应的字母作为分隔线。为零，就是将整个字符串都后移。 参考文档：b站视频很不错 python代码实现 阮一峰KMP]]></content>

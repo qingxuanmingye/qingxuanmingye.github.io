@@ -294,6 +294,547 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/20/leetcode（栈）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Crist">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CRIST兴趣使然">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/20/leetcode（栈）/" itemprop="url">leetcode（栈）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T09:37:57+08:00">
+                2019-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常打卡/" itemprop="url" rel="index">
+                    <span itemprop="name">日常打卡</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  979 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>菜    682(E)</p>
+<p>中    71(C-)    、394(C+)</p>
+<p>危    42(B+)    、84(A)</p>
+</blockquote>
+<blockquote>
+<p>栈作为一种数据结构，是一种只能在一端进行插入和删除操作的特殊线性表。它按照<strong>先进后出</strong>的原则存储数据，先进入的数据被压入栈底，最后的数据在栈顶，需要读数据的时候从栈顶开始弹出数据（最后一个数据被第一个读出来）。栈具有记忆作用，对栈的插入与删除操作中，不需要改变栈底指针。</p>
+</blockquote>
+<p>小练总结：栈的题相对来说比较简单，需要注意的问题就是模型转化跟栈结合时需要细心一些。实际问题转化为算法时，逻辑上的判断至关重要。</p>
+<hr>
+<h4 id="682-棒球比赛（E）"><a href="#682-棒球比赛（E）" class="headerlink" title="682. 棒球比赛（E）"></a><a href="https://leetcode-cn.com/problems/baseball-game/" target="_blank" rel="noopener">682. 棒球比赛</a>（E）</h4><p>分析：栈初试身手。选了一道简单难度的题。嗯，果然很简单。读清题意，解答很容易的。栈最后位，表示就是用队列的[-1]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calPoints</span><span class="params">(self, ops: List[str])</span> -&gt; int:</span></span><br><span class="line">        points = []</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; len(ops):</span><br><span class="line">            <span class="keyword">if</span> ops[i] == <span class="string">'C'</span>:</span><br><span class="line">                points.pop()</span><br><span class="line">            <span class="keyword">elif</span> ops[i] == <span class="string">'+'</span>:</span><br><span class="line">                points.append(points[<span class="number">-1</span>] + points[<span class="number">-2</span>])</span><br><span class="line">            <span class="keyword">elif</span> ops[i] == <span class="string">'D'</span>:</span><br><span class="line">                points.append(points[<span class="number">-1</span>] * <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                points.append(int(ops[i]))</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> sum(points)</span><br></pre></td></tr></table></figure>
+<h4 id="71-简化路径（C-）"><a href="#71-简化路径（C-）" class="headerlink" title="71. 简化路径（C-）"></a><a href="https://leetcode-cn.com/problems/simplify-path/" target="_blank" rel="noopener">71. 简化路径</a>（C-）</h4><p>分析：本质上还是一道简单的栈表示。题意理解上稍微复杂一点。如果不熟悉Linux路径表示，需要细心看一下。..删除的是前面出现的路径。整体思路就是分段，去空，判断，构建栈。最后别忘了拼接。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">simplifyPath</span><span class="params">(self, path: str)</span> -&gt; str:</span></span><br><span class="line">        l = path.split(<span class="string">'/'</span>)</span><br><span class="line">        l = [i <span class="keyword">for</span> i <span class="keyword">in</span> l <span class="keyword">if</span> i]</span><br><span class="line">        stack = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> l:</span><br><span class="line">            c = l.pop(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">if</span> c == <span class="string">'.'</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> c == <span class="string">'..'</span>:</span><br><span class="line">                <span class="keyword">if</span> stack:</span><br><span class="line">                    stack.pop(<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(c)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'/'</span>+<span class="string">'/'</span>.join(stack)</span><br></pre></td></tr></table></figure>
+<h4 id="394-字符串解码（C-）"><a href="#394-字符串解码（C-）" class="headerlink" title="394. 字符串解码（C+）"></a><a href="https://leetcode-cn.com/problems/decode-string/" target="_blank" rel="noopener">394. 字符串解码</a>（C+）</h4><p>分析：题意容易理解。关键点在于，数字和字母构建双重栈。如果没有数字添加默认1，最后依次匹配相乘。关键点在于，字符拼接时注意翻转。因为栈后进先出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decodeString</span><span class="params">(self, s: str)</span> -&gt; str:</span></span><br><span class="line">        result = <span class="string">''</span></span><br><span class="line">        stack = []<span class="comment">#模拟栈</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> i != <span class="string">']'</span>:</span><br><span class="line">                stack.append(i)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp1 = []<span class="comment">#存字母</span></span><br><span class="line">                <span class="keyword">while</span> stack[<span class="number">-1</span>] != <span class="string">"["</span>:</span><br><span class="line">                    temp1.append(stack.pop())</span><br><span class="line">                temp1_list = list(temp1)</span><br><span class="line">                stack.pop()<span class="comment">#去除[</span></span><br><span class="line">                    </span><br><span class="line">                temp2 = []<span class="comment">#存数字</span></span><br><span class="line">                <span class="keyword">if</span> len(stack)!=<span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">while</span> stack[<span class="number">-1</span>] <span class="keyword">in</span> <span class="string">"0123456789"</span>:  <span class="comment">#做循环是为了防止高位数出现</span></span><br><span class="line">                        temp2.append(stack.pop())</span><br><span class="line">                        <span class="keyword">if</span> len(stack)==<span class="number">0</span>:</span><br><span class="line">                            <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">if</span> temp2 == []:</span><br><span class="line">                    temp2= [<span class="string">'1'</span>]</span><br><span class="line">                stack.append(eval(<span class="string">""</span>.join(temp2[::<span class="number">-1</span>]))*<span class="string">""</span>.join(temp1[::<span class="number">-1</span>]))<span class="comment">#先反转列表形成字符串，然后相乘，添加到stack</span></span><br><span class="line">                </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> stack:</span><br><span class="line">            result += i</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<p>遇事不决用正则。正则用好了，超级容易实现，然鹅！这道题考察栈。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decodeString</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> <span class="string">'['</span> <span class="keyword">in</span> s:</span><br><span class="line">            s = re.sub(<span class="string">r"(\d+)\[(\w+)\]"</span>,<span class="keyword">lambda</span> m:int(m.group(<span class="number">1</span>))*m.group(<span class="number">2</span>),s)</span><br><span class="line">        <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
+<h4 id="42-接雨水（B-）"><a href="#42-接雨水（B-）" class="headerlink" title="42. 接雨水（B+）"></a><a href="https://leetcode-cn.com/problems/trapping-rain-water/" target="_blank" rel="noopener">42. 接雨水</a>（B+）</h4><p>分析：hard难度，就有点意思了。感觉更多的是，找到规律。两边分别遍历一下，墙和水被加了两次，再减去墙。最后减去整体面积。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trap</span><span class="params">(self, height: List[int])</span> -&gt; int:</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        h1 = <span class="number">0</span></span><br><span class="line">        h2 = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(height)):</span><br><span class="line">            h1 = max(h1,height[i])</span><br><span class="line">            h2 = max(h2,height[-i<span class="number">-1</span>])</span><br><span class="line">            ans = ans + h1 + h2 -height[i]</span><br><span class="line">        <span class="keyword">return</span>  ans - len(height)*h1</span><br></pre></td></tr></table></figure>
+<h4 id="84-柱状图中最大的矩形（A）"><a href="#84-柱状图中最大的矩形（A）" class="headerlink" title="84. 柱状图中最大的矩形（A）"></a><a href="https://leetcode-cn.com/problems/largest-rectangle-in-histogram/" target="_blank" rel="noopener">84. 柱状图中最大的矩形</a>（A）</h4><p>分析：感觉许久未逢的几何生疏感，想了一阵才缕清算法思路，虽然对步骤还有点违和感。</p>
+<p>算法书写不难，不过这个思路的构建还是需要学习一下的。关键点在于，右侧高于左侧，放入栈中。低于左侧，就开始计算面积。判断，左右边界，求面积。是i中的高，还是栈中的高，直接影响面积。最后加个0是收尾计算。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">largestRectangleArea</span><span class="params">(self, heights: List[int])</span> -&gt; int:</span></span><br><span class="line">        heights.append(<span class="number">0</span>)   <span class="comment">#控制边界做最后收尾验算</span></span><br><span class="line">        stack = [<span class="number">-1</span>]</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(heights)):</span><br><span class="line">            <span class="keyword">while</span> stack <span class="keyword">and</span> heights[stack[<span class="number">-1</span>]]&gt;heights[i]:  <span class="comment">#如果栈中圆柱高于新圆柱</span></span><br><span class="line">                s = stack.pop()  <span class="comment">#i&lt;i-1.右边界为i-1出栈。</span></span><br><span class="line">                res = max(res,(i-stack[<span class="number">-1</span>]<span class="number">-1</span>)*heights[s])</span><br><span class="line">            stack.append(i)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/19/leetcode（脑筋急转弯）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Crist">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CRIST兴趣使然">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/leetcode（脑筋急转弯）/" itemprop="url">leetcode（脑筋急转弯）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T09:48:15+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/每日打卡/" itemprop="url" rel="index">
+                    <span itemprop="name">每日打卡</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  637 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>菜  292(E)</p>
+<p>中  319(D)  777(B+)</p>
+<p>危</p>
+<p>今天就算是娱乐专场了。三道脑筋急转弯。</p>
+<p>加餐：zip函数（）</p>
+<hr>
+<h4 id="292-Nim游戏（E）"><a href="#292-Nim游戏（E）" class="headerlink" title="292. Nim游戏（E）"></a><a href="https://leetcode-cn.com/problems/nim-game/" target="_blank" rel="noopener">292. Nim游戏</a>（E）</h4><p>分析：额。一开始有点懵，这道题要考什么啊。转弯转在哪里啊。想到了4这个数，加个判断就完成了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canWinNim</span><span class="params">(self, n: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">if</span> n % <span class="number">4</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h4 id="319-灯泡开关（D）"><a href="#319-灯泡开关（D）" class="headerlink" title="319. 灯泡开关（D）"></a><a href="https://leetcode-cn.com/problems/bulb-switcher/" target="_blank" rel="noopener">319. 灯泡开关</a>（D）</h4><p>分析：这道题，有点意思。需要考虑到开关状态跟因子数相关。</p>
+<p>（1）第i轮时，被切换的灯泡位置是i的倍数。<br>（2）由（1）得出，对于第p个灯泡来说，只有其第“因子”轮才会切换，若其有q个因子，则最终被切换q次。因为初始状态是关闭状态，那么因子数是奇数的灯泡最终是亮着的。<br>（3）只有平方数的因子个数不是成对出现，举例：4=1*4,2*2，其因子是1,2,4。<br>（4）那么题目最终转化为1~n里平方数的个数，进而转化为对n开平方根，向下取整即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bulbSwitch</span><span class="params">(self, n: int)</span> -&gt; int:</span>       </span><br><span class="line">        <span class="keyword">return</span> math.floor(n ** <span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="777-在LR字符串中交换相邻字符（B-）"><a href="#777-在LR字符串中交换相邻字符（B-）" class="headerlink" title="777. 在LR字符串中交换相邻字符（B+）"></a><a href="https://leetcode-cn.com/problems/swap-adjacent-in-lr-string/" target="_blank" rel="noopener">777. 在LR字符串中交换相邻字符</a>（B+）</h4><p>L只能跨越X左移，R只能跨越X又移，LR相互之间不可以移动</p>
+<p>用两个计数单位分别记录，LX和XR   XL和RX。一个正一个负，来比较抵消。</p>
+<p>需要注意的是，使用到了zip()函数，扩展在下面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canTransform</span><span class="params">(self, start: str, end: str)</span> -&gt; bool:</span></span><br><span class="line">        <span class="comment">#    left move l right move r</span></span><br><span class="line">        end_has_l = <span class="number">0</span></span><br><span class="line">        start_has_r = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> s, e <span class="keyword">in</span> zip(start, end):           <span class="comment">#zip打包成元组（取最短的）</span></span><br><span class="line">            <span class="keyword">if</span> s == e:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">elif</span> end_has_l <span class="keyword">and</span> s == <span class="string">"L"</span> <span class="keyword">and</span> e == <span class="string">"X"</span>:</span><br><span class="line">                <span class="comment"># start can move this l to left</span></span><br><span class="line">                end_has_l -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> start_has_r <span class="keyword">and</span> s == <span class="string">"X"</span> <span class="keyword">and</span> e == <span class="string">"R"</span>:</span><br><span class="line">                <span class="comment"># start has r to move right</span></span><br><span class="line">                start_has_r -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> e == <span class="string">"L"</span>:</span><br><span class="line">                end_has_l += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> s == <span class="string">"R"</span>:</span><br><span class="line">                start_has_r += <span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> start_has_r == end_has_l == <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="zip-函数的使用"><a href="#zip-函数的使用" class="headerlink" title="zip()函数的使用"></a>zip()函数的使用</h3><p> a = [1,2,3]</p>
+<p> b = [4,5,6]<br> c = [4,5,6,7,8]<br> zipped = zip(a,b)     # 打包为元组的列表<br>[(1, 4), (2, 5), (3, 6)]<br> zip(a,c)              # 元素个数与最短的列表一致<br>[(1, 4), (2, 5), (3, 6)]<br> zip(<em>zipped)          # 与 zip 相反，</em>zipped 可理解为解压，返回二维矩阵式<br>[(1, 2, 3), (4, 5, 6)]</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;nums = [&apos;flower&apos;,&apos;flow&apos;,&apos;flight&apos;]</span><br><span class="line">&gt;&gt;&gt;for i in zip(*nums):</span><br><span class="line">&gt;&gt;&gt;    print(i)</span><br><span class="line">&gt;&gt;&gt;    </span><br><span class="line">&gt;&gt;&gt;&gt;&gt;    </span><br><span class="line">&gt;&gt;&gt;(&apos;f&apos;, &apos;f&apos;, &apos;f&apos;)</span><br><span class="line">&gt;&gt;&gt;(&apos;l&apos;, &apos;l&apos;, &apos;l&apos;)</span><br><span class="line">&gt;&gt;&gt;(&apos;o&apos;, &apos;o&apos;, &apos;i&apos;)</span><br><span class="line">&gt;&gt;&gt;(&apos;w&apos;, &apos;w&apos;, &apos;g&apos;) </span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></blockquote>
+</blockquote>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/19/leetcode打卡/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Crist">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CRIST兴趣使然">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/leetcode打卡/" itemprop="url">leetcode打卡</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T09:47:18+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/18/KMP算法梳理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1679,168 +2220,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/06/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Crist">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CRIST兴趣使然">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/06/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-06T16:59:49+08:00">
-                2019-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  73 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1886,7 +2272,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1897,7 +2283,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1908,7 +2294,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1991,7 +2377,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">����ȫվ��6.5k��</span>
+  <span class="post-count">����ȫվ��8.1k��</span>
 </div>-->
 
 
