@@ -294,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/20/leetcode（栈）/">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/22/leetcodede-队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Crist">
@@ -313,7 +313,224 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/20/leetcode（栈）/" itemprop="url">leetcode（栈）</a></h1>
+                <a class="post-title-link" href="/2019/04/22/leetcodede-队列/" itemprop="url">leetcodede_队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T16:25:35+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/每日打卡/" itemprop="url" rel="index">
+                    <span itemprop="name">每日打卡</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>菜    933（B+）</li>
+<li>中    <strong>621（A-）</strong> 、622（C+） 、641（C+）</li>
+<li>危    <strong>862（A+）</strong></li>
+</ul>
+<p>个人总结：队列的题普遍综合性，理解题意就需要花费一定时间。队列是先进先出。有几道都是自定义构造类，实现功能。还是比较锻炼代码基础的。逻辑性还是不好，代码构建时有一些心浮气躁。需要沉下心，慢慢努力。</p>
+<p>额外扩展：collections模块的Counter类</p>
+<hr>
+<h4 id="933-最近的请求次数（B）"><a href="#933-最近的请求次数（B）" class="headerlink" title="933. 最近的请求次数（B）"></a><a href="https://leetcode-cn.com/problems/number-of-recent-calls/" target="_blank" rel="noopener">933. 最近的请求次数</a>（B）</h4><p>分析：蛤？看题看了三遍，也没读懂要求到底是什么。不是出题人表达能力欠佳，要不就是我理解欠佳。暂且归于后者吧。看了评论知道了题意。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/*法1：其实这题很简单的，用队列的enqueue和dequeue做很简洁（队列用C语言做要啰嗦点）*/</span><br><span class="line">/*比如输入是[&quot;RecentCounter&quot;,&quot;ping&quot;,&quot;ping&quot;,&quot;ping&quot;,&quot;ping&quot;]</span><br><span class="line">           [[],[1],[100],[3001],[3002]]</span><br><span class="line">第一组是(RecentCounter, [])这个意思我觉得是创立一个RecentCounter型的指针并返回，就如这个函数RecentCounter* recentCounterCreate() </span><br><span class="line">第二组是(ping, [1])调用了ping函数，就是这个int recentCounterPing(RecentCounter* obj, int t) ，1时刻和它之前的1-3000时刻之内都应记录好，其实应该是从0开始递增下去的吧，1-3000到1内的负数不用考虑，所以返回值是1；</span><br><span class="line">第三组是(ping, [100])，(100 - 3000, 100)这个范围之内的值都应记录起来，就是要包括第二组的</span><br><span class="line">(ping, [1])，所以返回值是2；</span><br><span class="line">第四组是(ping, [3001])，(3001 - 3000, 3001)这个范围之内，也就是包括了第二组的(ping, [1])和第三组的(ping, [100])，返回值是3；</span><br><span class="line">第五组是(ping, [3002])，(3002 - 3000, 3002)这个范围之内，也就是包括了第三组的(ping, [100])和第四组的(ping, [3001])，第二组的(ping, [1])不在范围内，舍掉，此时返回值是3；</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RecentCounter</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.pinglist=[]</span><br><span class="line">        self.minindex=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ping</span><span class="params">(self, t: int)</span> -&gt; int:</span></span><br><span class="line">        self.pinglist.append(t)</span><br><span class="line">        <span class="keyword">while</span> t &gt; self.pinglist[self.minindex] + <span class="number">3000</span>:</span><br><span class="line">            self.minindex += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> len(self.pinglist) - self.minindex</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your RecentCounter object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = RecentCounter()</span></span><br><span class="line"><span class="comment"># param_1 = obj.ping(t)</span></span><br></pre></td></tr></table></figure>
+<h4 id="621-任务调度器（A-）"><a href="#621-任务调度器（A-）" class="headerlink" title="621. 任务调度器（A-）"></a><a href="https://leetcode-cn.com/problems/task-scheduler/" target="_blank" rel="noopener">621. 任务调度器</a>（A-）</h4><p>分析：CPU调度，一开始就被这标题吓唬住了。了解题意后，也没有什么好的想法。看答案，基本都是一个路子。找到一个计算公式。 (count[25] - 1) * (n + 1) + maxCount</p>
+<p>公式详解：</p>
+<ul>
+<li>假设数组 [“A”,”A”,”A”,”B”,”B”,”C”]，n = 2，A的频率最高，记为count = 3，所以两个A之间必须间隔2个任务，才能满足题意并且是最短时间（两个A的间隔大于2的总时间必然不是最短），因此执行顺序为： A-&gt;X-&gt;X-&gt;A-&gt;X-&gt;X-&gt;A，这里的X表示除了A以外其他字母，或者是待命，不用关心具体是什么，反正用来填充两个A的间隔的。上面执行顺序的规律是： 有count - 1个A，其中每个A需要搭配n个X，再加上最后一个A，所以总时间为 (count - 1) * (n + 1) + 1</li>
+<li>要注意可能会出现多个频率相同且都是最高的任务，比如 [“A”,”A”,”A”,”B”,”B”,”B”,”C”,”C”]，所以最后会剩下一个A和一个B，因此最后要加上频率最高的不同任务的个数 maxCount</li>
+<li>公式算出的值可能会比数组的长度小，如[“A”,”A”,”B”,”B”]，n = 0，此时要取数组的长度</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">leastInterval</span><span class="params">(self, tasks: List[str], n: int)</span> -&gt; int:</span></span><br><span class="line">        count = collections.Counter(tasks)</span><br><span class="line">        most = count.most_common()[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">        <span class="comment">#most_common()返回一个TopN列表。如果n没有被指定，则返回所有元素。当多个元素计数值相同时，排列是无确定顺序的。</span></span><br><span class="line">        num_most = len([i <span class="keyword">for</span> i, v <span class="keyword">in</span> count.items() <span class="keyword">if</span> v == most])</span><br><span class="line">        time = (most - <span class="number">1</span>) * (n + <span class="number">1</span>) + num_most</span><br><span class="line">        <span class="keyword">return</span> max(time, len(tasks))</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="扩展：collections模块的Counter类"><a href="#扩展：collections模块的Counter类" class="headerlink" title="扩展：collections模块的Counter类"></a>扩展：collections模块的Counter类</h3><p>Counter类的目的是用来跟踪值出现的次数。它是一个无序的容器类型，以字典的键值对形式存储，其中元素作为key，其计数作为value。计数值可以是任意的Interger（包括0和负数）。Counter类和其他语言的bags或multisets很相似。</p>
+<p>参考：<a href="http://www.pythoner.com/205.html" target="_blank" rel="noopener">http://www.pythoner.com/205.html</a></p>
+<p>第二种方法，基本上区别不大。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">leastInterval</span><span class="params">(self, tasks: List[str], n: int)</span> -&gt; int:</span></span><br><span class="line">        output = [<span class="number">0</span>]*<span class="number">26</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> tasks:</span><br><span class="line">            output[ord(i)-ord(<span class="string">'A'</span>)] = output[ord(i)-ord(<span class="string">'A'</span>)]+<span class="number">1</span>   <span class="comment">#返回ASCII值</span></span><br><span class="line"> </span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        len_o = <span class="number">0</span></span><br><span class="line">        max_o = max(output)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> output:</span><br><span class="line">            <span class="keyword">if</span> i==max_o:</span><br><span class="line">                count = count+<span class="number">1</span></span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">return</span> max(len(tasks),(max_o<span class="number">-1</span>)*(n+<span class="number">1</span>)+count)</span><br></pre></td></tr></table></figure>
+<p>ord() 函数是 chr() 函数（对于8位的ASCII字符串）或 unichr() 函数（对于Unicode对象）的配对函数，它以一个字符（长度为1的字符串）作为参数，返回对应的 ASCII 数值，或者 Unicode 数值，如果所给的 Unicode 字符超出了你的 Python 定义范围，则会引发一个 TypeError 的异常。</p>
+<h4 id="622-设计循环队列（C）"><a href="#622-设计循环队列（C）" class="headerlink" title="622. 设计循环队列（C）"></a><a href="https://leetcode-cn.com/problems/design-circular-queue/" target="_blank" rel="noopener">622. 设计循环队列</a>（C）</h4><p>分析：构建类，设计循环队列。很好理解，也算是第一次见这种题型。构建循环队列可以使用数组或者是链表。</p>
+<blockquote>
+<ul>
+<li><code>MyCircularQueue(k)</code>: 构造器，设置队列长度为 k 。</li>
+<li><code>Front</code>: 从队首获取元素。如果队列为空，返回 -1 。</li>
+<li><code>Rear</code>: 获取队尾元素。如果队列为空，返回 -1 。</li>
+<li><code>enQueue(value)</code>: 向循环队列插入一个元素。如果成功插入则返回真。</li>
+<li><code>deQueue()</code>: 从循环队列中删除一个元素。如果成功删除则返回真。</li>
+<li><code>isEmpty()</code>: 检查循环队列是否为空。</li>
+<li><code>isFull()</code>: 检查循环队列是否已满。</li>
+</ul>
+</blockquote>
+<p>循环队列关键点在于<code>avail = (self._front + self._size ) % len(self._data)</code>第一个数位置变动，如果大于循环数组长度，就可以在队列前面添加元素。其他“%”皆是如此。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCircularQueue</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, k)</span>:</span>      </span><br><span class="line">        self._data = [<span class="literal">None</span>] * k   <span class="comment"># 数据</span></span><br><span class="line">        self._size = <span class="number">0</span>            <span class="comment"># 目前储存的个数</span></span><br><span class="line">        self._front = <span class="number">0</span>           <span class="comment"># 第一个数的位置</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enQueue</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.isFull():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span> </span><br><span class="line">        avail = (self._front + self._size ) % len(self._data)  <span class="comment"># （第一个数的位置 + 目前储存的个数） % 循环数组长度</span></span><br><span class="line">        self._data[avail] = value</span><br><span class="line">        self._size += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deQueue</span><span class="params">(self)</span>:</span>       </span><br><span class="line">        <span class="keyword">if</span> self.isEmpty()：</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        answer = self._data[self._front]</span><br><span class="line">        self._data[self._front] = <span class="literal">None</span></span><br><span class="line">        self._front = (self._front + <span class="number">1</span>) % len(self._data) <span class="comment"># （第一个数的位置 + 1） % 循环数组长度</span></span><br><span class="line">        self._size -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Front</span><span class="params">(self)</span>:</span>       </span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        <span class="keyword">return</span> self._data[self._front]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Rear</span><span class="params">(self)</span>:</span>      </span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        <span class="keyword">return</span> self._data[(self._front + self._size - <span class="number">1</span>) % len(self._data)]  <span class="comment"># （第一个数的位置 + 目前储存的个数 - 1 ） % 循环数组长度</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span>       </span><br><span class="line">        <span class="keyword">return</span> self._size == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span>:</span>      </span><br><span class="line">        <span class="keyword">return</span> self._size == len(self._data)</span><br></pre></td></tr></table></figure>
+<h4 id="641-设计循环双端队列（C）"><a href="#641-设计循环双端队列（C）" class="headerlink" title="641. 设计循环双端队列（C）"></a><a href="https://leetcode-cn.com/problems/design-circular-deque/" target="_blank" rel="noopener">641. 设计循环双端队列</a>（C）</h4><p>分析：跟前一题基本类似。加了一个双端要求。题中要求不可以使用内置的双端队列。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCircularDeque</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here. Set the size of the deque to be k.</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.queue = []</span><br><span class="line">        self.size = k</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertFront</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Adds an item at the front of Deque. Return true if the operation is successful.</span></span><br><span class="line"><span class="string">        :type value: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.isFull():</span><br><span class="line">            self.queue.insert(<span class="number">0</span>,value)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertLast</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Adds an item at the rear of Deque. Return true if the operation is successful.</span></span><br><span class="line"><span class="string">        :type value: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.isFull():</span><br><span class="line">            self.queue.append(value)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteFront</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Deletes an item from the front of Deque. Return true if the operation is successful.</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.isEmpty():</span><br><span class="line">            self.queue.pop(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteLast</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Deletes an item from the rear of Deque. Return true if the operation is successful.</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.isEmpty():</span><br><span class="line">            self.queue.pop()</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getFront</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Get the front item from the deque.</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.queue[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getRear</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Get the last item from the deque.</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> self.isEmpty():</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.queue[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Checks whether the circular deque is empty or not.</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> len(self.queue) == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Checks whether the circular deque is full or not.</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> len(self.queue) == self.size</span><br></pre></td></tr></table></figure>
+<p>第二种。是同622一样的做法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCircularDeque</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, k: <span class="string">'int'</span>)</span>:</span></span><br><span class="line">        self.a = [<span class="literal">None</span>] * k <span class="comment"># internal buffer</span></span><br><span class="line">        self.k = k <span class="comment"># capacity - max number of elements that deque can hold</span></span><br><span class="line">        self.sz = <span class="number">0</span> <span class="comment"># current size</span></span><br><span class="line">        self.b = k - <span class="number">1</span> <span class="comment"># points to current 'back' element</span></span><br><span class="line">        self.f = <span class="number">0</span> <span class="comment"># points to current 'front' element        </span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">prev_idx</span><span class="params">(self, i)</span>:</span> </span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">0</span>: <span class="keyword">return</span> self.k - <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="keyword">return</span> i - <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next_idx</span><span class="params">(self, i)</span>:</span> </span><br><span class="line">        <span class="keyword">return</span> (i + <span class="number">1</span>) % self.k</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertFront</span><span class="params">(self, v: <span class="string">'int'</span>)</span> -&gt; 'bool':</span></span><br><span class="line">        <span class="keyword">if</span> self.sz == self.k: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        self.f = self.prev_idx(self.f)</span><br><span class="line">        self.a[self.f] = v</span><br><span class="line">        self.sz += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertLast</span><span class="params">(self, v: <span class="string">'int'</span>)</span> -&gt; 'bool':</span></span><br><span class="line">        <span class="keyword">if</span> self.sz == self.k: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        self.b = self.next_idx(self.b)</span><br><span class="line">        self.a[self.b] = v</span><br><span class="line">        self.sz += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteFront</span><span class="params">(self)</span> -&gt; 'bool':</span></span><br><span class="line">        <span class="keyword">if</span> self.sz == <span class="number">0</span>: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        self.f = self.next_idx(self.f)</span><br><span class="line">        self.sz -= <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteLast</span><span class="params">(self)</span> -&gt; 'bool':</span></span><br><span class="line">        <span class="keyword">if</span> self.sz == <span class="number">0</span>: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        self.b = self.prev_idx(self.b)</span><br><span class="line">        self.sz -= <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getFront</span><span class="params">(self)</span> -&gt; 'int':</span></span><br><span class="line">        <span class="keyword">if</span> self.sz == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> self.a[self.f]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getRear</span><span class="params">(self)</span> -&gt; 'int':</span></span><br><span class="line">        <span class="keyword">if</span> self.sz == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> self.a[self.b]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isEmpty</span><span class="params">(self)</span> -&gt; 'bol':</span> </span><br><span class="line">        <span class="keyword">return</span> self.sz == <span class="number">0</span>        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isFull</span><span class="params">(self)</span> -&gt; 'bool':</span></span><br><span class="line">        <span class="keyword">return</span> self.sz == self.k</span><br></pre></td></tr></table></figure>
+<h4 id="862-和至少为-K-的最短子数组（A-）"><a href="#862-和至少为-K-的最短子数组（A-）" class="headerlink" title="862. 和至少为 K 的最短子数组（A+）"></a><a href="https://leetcode-cn.com/problems/shortest-subarray-with-sum-at-least-k/" target="_blank" rel="noopener">862. 和至少为 K 的最短子数组</a>（A+）</h4><p>分析：结合了队列和动态规划。由于题中给了 （1 &lt;= K）所以，必须要保证，dp 后一个值减去前一个值，而且是必须大于0才是有效的。从双端队列左侧出队，来寻求最短的字数组是精华所在。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">shortestSubarray</span><span class="params">(self, A: List[int], K: int)</span> -&gt; int:</span>        </span><br><span class="line"> </span><br><span class="line">        n, dp = len(A), [<span class="number">0</span>]  <span class="comment"># 初始化dp[i] = A[0]+A[1]+...+A[i-1]</span></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> A: </span><br><span class="line">            dp.append(dp[<span class="number">-1</span>] + v)</span><br><span class="line"> </span><br><span class="line">        queue, res = collections.deque(), n + <span class="number">1</span>  <span class="comment"># 初始化双端队列、结果变量</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">while</span> queue <span class="keyword">and</span> dp[i] &lt;= dp[queue[<span class="number">-1</span>]]: <span class="comment">#因为K &gt;= 1</span></span><br><span class="line">                queue.pop()  <span class="comment"># 出队, 删除不符合的</span></span><br><span class="line"> </span><br><span class="line">            <span class="keyword">while</span> queue <span class="keyword">and</span> dp[i] - dp[queue[<span class="number">0</span>]] &gt;= K:  <span class="comment">#满足题意。</span></span><br><span class="line">                res = min(res, i - queue.popleft())  <span class="comment"># 从双端队列左边出队，并更新最短距离。</span></span><br><span class="line"> </span><br><span class="line">            queue.append(i)  <span class="comment"># 入队</span></span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> res <span class="keyword">if</span> res &lt; n + <span class="number">1</span> <span class="keyword">else</span> <span class="number">-1</span>  <span class="comment">#返回最优解，限制不可能超过列表元素。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    solu = Solution()</span><br><span class="line">    A, K = [<span class="number">2</span>, <span class="number">-1</span>, <span class="number">2</span>], <span class="number">3</span></span><br><span class="line">    print(solu.shortestSubarray(A, K))</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/20/leetcode 栈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Crist">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CRIST兴趣使然">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/20/leetcode 栈/" itemprop="url">leetcode（栈）</a></h1>
         
 
         <div class="post-meta">
@@ -489,7 +706,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/19/leetcode（脑筋急转弯）/">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/19/leetcode 脑筋急转弯/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Crist">
@@ -508,7 +725,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/19/leetcode（脑筋急转弯）/" itemprop="url">leetcode（脑筋急转弯）</a></h1>
+                <a class="post-title-link" href="/2019/04/19/leetcode 脑筋急转弯/" itemprop="url">leetcode（脑筋急转弯）</a></h1>
         
 
         <div class="post-meta">
@@ -638,156 +855,6 @@
 </blockquote>
 </blockquote>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/19/leetcode打卡/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Crist">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CRIST兴趣使然">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/19/leetcode打卡/" itemprop="url">leetcode打卡</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-19T09:47:18+08:00">
-                2019-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -1604,7 +1671,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/12/动态规划/">
+    <link itemprop="mainEntityOfPage" href="https://qingxuanmingye.github.io/2019/04/12/leetcode 动态规划/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Crist">
@@ -1623,7 +1690,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/12/动态规划/" itemprop="url">动态规划</a></h1>
+                <a class="post-title-link" href="/2019/04/12/leetcode 动态规划/" itemprop="url">leetcode 动态规划</a></h1>
         
 
         <div class="post-meta">
@@ -2294,7 +2361,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2377,7 +2444,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">����ȫվ��8.1k��</span>
+  <span class="post-count">����ȫվ��10.5k��</span>
 </div>-->
 
 
