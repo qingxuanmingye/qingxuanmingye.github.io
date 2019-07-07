@@ -921,7 +921,7 @@
 <p>float（‘-inf’）无穷小</p>
 </blockquote>
 <p>231  <a href="https://leetcode-cn.com/problems/power-of-two" target="_blank" rel="noopener">2的幂</a>    </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">return</span> n &gt; <span class="number">0</span> <span class="keyword">and</span> n &amp; n - <span class="number">1</span> == <span class="number">0</span></span><br><span class="line"><span class="comment">#2 的幂的二进制形式最高位一定是1，其余为0</span></span><br></pre></td></tr></table></figure>
 <p>238  <a href="https://leetcode-cn.com/problems/product-of-array-except-self" target="_blank" rel="noopener">除自身以外数组的乘积</a>    不可以用除法，有时间要求。使用的是计算矩阵的上三角和下三角，并且在计算过程中储存过程值，最终可以在遍历2遍nums下完成结果计算。</p>
 <p>206  <a href="https://leetcode-cn.com/problems/reverse-linked-list" target="_blank" rel="noopener">反转链表</a>  比较常规的一道题。首先还是考虑，递归或者迭代。</p>
 <blockquote>
@@ -931,7 +931,7 @@
 </blockquote>
 <p>344  <a href="https://leetcode-cn.com/problems/reverse-string" target="_blank" rel="noopener">反转字符串</a>    双指针，直接交换即可。感动。 还有一个内置反向递归。reverse()</p>
 <blockquote>
-<p>for i in range(int(len(s)/2)):<br>            s[i], s[-i-1] = s[-i-1], s[i]                    #这种首位交换方式的表达方法值得学习一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">for</span> i <span class="keyword">in</span> range(int(len(s)/<span class="number">2</span>)):</span><br><span class="line">&gt;             s[i], s[-i<span class="number">-1</span>] = s[-i<span class="number">-1</span>], s[i]      <span class="comment">#这种首位交换方式的表达方法值得学习一下。</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>557  <a href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii" target="_blank" rel="noopener">反转字符串中的单词 III</a>    两次[::-1]。一次分割换位，再一次整体字母换位。</p>
 <p>61  <a href="https://leetcode-cn.com/problems/rotate-list" target="_blank" rel="noopener">旋转链表</a>    k %= length + 1 关键点，就是拼接成环，找到断点。首尾相接，断点尾部指向None。</p>
@@ -3018,7 +3018,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">����ȫվ��20.4k��</span>
+  <span class="post-count">����ȫվ��20.5k��</span>
 </div>-->
 
 
