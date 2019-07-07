@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="CRIST兴趣使然">
 <meta property="og:description" content="菜   中  46. 全排列（C）47. 全排列 II（C-） 危  37. 解数独（S-）51. N皇后（A）52. N皇后 II（A）   回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。 解题关键：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-25T14:42:11.458Z">
+<meta property="og:updated_time" content="2019-06-20T05:24:23.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-回溯算法">
 <meta name="twitter:description" content="菜   中  46. 全排列（C）47. 全排列 II（C-） 危  37. 解数独（S-）51. N皇后（A）52. N皇后 II（A）   回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。 解题关键：">
@@ -350,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法专题/" itemprop="url" rel="index">
-                    <span itemprop="name">算法专题</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -361,7 +361,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法专题/附c/" itemprop="url" rel="index">
+                  <a href="/categories/算法/附c/" itemprop="url" rel="index">
                     <span itemprop="name">附c++</span>
                   </a>
                 </span>
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.1k 字
+                  3.2k 字
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15 分钟
+                  16 分钟
                 </span>
               
             </div>
@@ -481,7 +481,7 @@
 <p>一行邪教</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solveNQueens</span><span class="params">(self, n: int)</span> -&gt; List[List[str]]:</span></span><br><span class="line">        <span class="keyword">return</span> [[<span class="string">'.'</span> * v + <span class="string">'Q'</span> + <span class="string">'.'</span> * (n - v - <span class="number">1</span>) <span class="keyword">for</span> v <span class="keyword">in</span> c] <span class="keyword">for</span> c <span class="keyword">in</span> itertools.permutations(range(n))</span><br><span class="line">                <span class="keyword">if</span> (len(set(i + v <span class="keyword">for</span> i, v <span class="keyword">in</span> enumerate(c))) == n) <span class="keyword">and</span></span><br><span class="line">                (len(set(i - v <span class="keyword">for</span> i, v <span class="keyword">in</span> enumerate(c))) == n)]</span><br></pre></td></tr></table></figure>
 <h4 id="52-N皇后-II（A）"><a href="#52-N皇后-II（A）" class="headerlink" title="52. N皇后 II（A）"></a><a href="https://leetcode-cn.com/problems/n-queens-ii/" target="_blank" rel="noopener">52. N皇后 II</a>（A）</h4><p>分析:有了上一题的基础，做起来还是挺简单的。符合条件的放入列表。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">totalNQueens</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        board, ret = [[<span class="string">'.'</span>] * n <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)], []</span><br><span class="line">        self.dfs(board, n, <span class="number">0</span>, ret)</span><br><span class="line">        <span class="keyword">return</span> len(ret)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, board, n, row, ret)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> row == n:</span><br><span class="line">            ret.append([<span class="string">""</span>.join(i) <span class="keyword">for</span> i <span class="keyword">in</span> board])</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.canPlace(row, i, n, board):</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            board[row][i] = <span class="string">'Q'</span></span><br><span class="line">            self.dfs(board, n, row + <span class="number">1</span>, ret)</span><br><span class="line">            board[row][i] = <span class="string">'.'</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canPlace</span><span class="params">(self, row, col, n, board)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, row + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> board[row - i][col] == <span class="string">'Q'</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">if</span> col - i &gt;= <span class="number">0</span> <span class="keyword">and</span> board[row - i][col - i] == <span class="string">'Q'</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">if</span> col + i &lt; n <span class="keyword">and</span> board[row - i][col + i] == <span class="string">'Q'</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
 <p>方法二：记录不能放置的位置。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># @author:leacoder </span></span><br><span class="line"><span class="comment"># @des:  DFS 深度优先  N皇后II</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">totalNQueens</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> n &lt; <span class="number">1</span> : <span class="keyword">return</span> []  <span class="comment">#</span></span><br><span class="line">        self.count = <span class="number">0</span></span><br><span class="line">        shu = [] <span class="comment"># 竖方向是否被攻击</span></span><br><span class="line">        pie = [] <span class="comment"># 撇方向是否被攻击  x y 坐标之和固定 x + y</span></span><br><span class="line">        na = []  <span class="comment"># 捺方向是否被攻击  x y 坐标之差固定 x - y</span></span><br><span class="line">        </span><br><span class="line">        self.DFS(n,shu,pie,na)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> self.count</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">DFS</span><span class="params">(self,n,shu,pie,na)</span>:</span> <span class="comment">#深度优先搜索 </span></span><br><span class="line">        p = len(shu) <span class="comment">#  从 1 -&gt; n</span></span><br><span class="line">        <span class="keyword">if</span> p == n :</span><br><span class="line">            self.count += <span class="number">1</span> <span class="comment">#每层有且只能放一个</span></span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        <span class="keyword">for</span> q <span class="keyword">in</span> range(n): <span class="comment"># 看成 x  每层枚举可能的 x</span></span><br><span class="line">            <span class="keyword">if</span> q <span class="keyword">not</span> <span class="keyword">in</span> shu <span class="keyword">and</span> p - q <span class="keyword">not</span> <span class="keyword">in</span> na <span class="keyword">and</span> p + q <span class="keyword">not</span> <span class="keyword">in</span> pie: <span class="comment">#这一层存在可能位置，向下层搜索</span></span><br><span class="line">                self.DFS(n,shu+[q],pie+[p+q],na+[p-q])  <span class="comment">#深度优先搜索  将被攻击的 坐标记录下来</span></span><br></pre></td></tr></table></figure>
 <p>方法三：位运算的表示，应该是最优方法之一。</p>
@@ -517,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/01/leetcode-日卡一/" rel="next" title="leetcode-日卡一">
-                <i class="fa fa-chevron-left"></i> leetcode-日卡一
+              <a href="/2019/05/01/leetcode-软柿子专场一/" rel="next" title="leetcode-软柿子专场一">
+                <i class="fa fa-chevron-left"></i> leetcode-软柿子专场一
               </a>
             
           </div>
@@ -526,6 +526,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/01/腾讯面试50题（一）/" rel="prev" title="腾讯面试50题（一）">
+                腾讯面试50题（一） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -611,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +626,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -633,7 +637,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -732,7 +736,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">����ȫվ��18.1k��</span>
+  <span class="post-count">����ȫվ��20.4k��</span>
 </div>-->
 
 

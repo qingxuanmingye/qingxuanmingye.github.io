@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://qingxuanmingye.github.io/"/>
-  <updated>2019-05-25T14:42:11.458Z</updated>
+  <updated>2019-07-07T15:59:23.082Z</updated>
   <id>https://qingxuanmingye.github.io/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>腾讯面试50题（一）</title>
+    <link href="https://qingxuanmingye.github.io/2019/07/01/%E8%85%BE%E8%AE%AF%E9%9D%A2%E8%AF%9550%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>https://qingxuanmingye.github.io/2019/07/01/腾讯面试50题（一）/</id>
+    <published>2019-07-01T12:58:01.000Z</published>
+    <updated>2019-07-07T15:59:23.082Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;开启新的篇章，LeetCode上的腾讯精选50题。日刷已经完成22题。一周之内完成任务，加上汇总。压力应该不小。不过，没有那么多时间留给你。暂且定为6兔1龟。&lt;/p&gt;
+&lt;hr&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;题号&lt;/th&gt;
+&lt;th&gt;&lt;
+        
+      
+    
+    </summary>
+    
+      <category term="面试刷题" scheme="https://qingxuanmingye.github.io/categories/%E9%9D%A2%E8%AF%95%E5%88%B7%E9%A2%98/"/>
+    
+    
+      <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode-回溯算法</title>
     <link href="https://qingxuanmingye.github.io/2019/05/01/leetcode-%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/"/>
     <id>https://qingxuanmingye.github.io/2019/05/01/leetcode-回溯算法/</id>
     <published>2019-05-01T07:22:09.000Z</published>
-    <updated>2019-05-25T14:42:11.458Z</updated>
+    <updated>2019-06-20T05:24:23.925Z</updated>
     
     <summary type="html">
     
@@ -37,9 +70,9 @@
     
     </summary>
     
-      <category term="算法专题" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/"/>
+      <category term="算法" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="附c++" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E9%A2%98/%E9%99%84c/"/>
+      <category term="附c++" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95/%E9%99%84c/"/>
     
     
       <category term="回溯法" scheme="https://qingxuanmingye.github.io/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
@@ -47,11 +80,11 @@
   </entry>
   
   <entry>
-    <title>leetcode-日卡一</title>
-    <link href="https://qingxuanmingye.github.io/2019/05/01/leetcode-%E6%97%A5%E5%8D%A1%E4%B8%80/"/>
-    <id>https://qingxuanmingye.github.io/2019/05/01/leetcode-日卡一/</id>
+    <title>leetcode-软柿子专场一</title>
+    <link href="https://qingxuanmingye.github.io/2019/05/01/leetcode-%E8%BD%AF%E6%9F%BF%E5%AD%90%E4%B8%93%E5%9C%BA%E4%B8%80/"/>
+    <id>https://qingxuanmingye.github.io/2019/05/01/leetcode-软柿子专场一/</id>
     <published>2019-05-01T04:46:14.000Z</published>
-    <updated>2019-05-01T15:20:30.872Z</updated>
+    <updated>2019-06-20T05:23:22.465Z</updated>
     
     <summary type="html">
     
@@ -66,7 +99,7 @@
     
     </summary>
     
-      <category term="软柿子专场" scheme="https://qingxuanmingye.github.io/categories/%E8%BD%AF%E6%9F%BF%E5%AD%90%E4%B8%93%E5%9C%BA/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="巧解" scheme="https://qingxuanmingye.github.io/tags/%E5%B7%A7%E8%A7%A3/"/>
@@ -78,7 +111,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/28/leetcode-%E6%95%B0%E7%BB%84%E4%B8%80/"/>
     <id>https://qingxuanmingye.github.io/2019/04/28/leetcode-数组一/</id>
     <published>2019-04-28T08:46:17.000Z</published>
-    <updated>2019-05-01T07:29:35.511Z</updated>
+    <updated>2019-06-20T05:22:56.053Z</updated>
     
     <summary type="html">
     
@@ -93,7 +126,9 @@
     
     </summary>
     
-      <category term="需二刷" scheme="https://qingxuanmingye.github.io/categories/%E9%9C%80%E4%BA%8C%E5%88%B7/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
+    
+      <category term="需二刷" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/%E9%9C%80%E4%BA%8C%E5%88%B7/"/>
     
     
       <category term="数组" scheme="https://qingxuanmingye.github.io/tags/%E6%95%B0%E7%BB%84/"/>
@@ -105,7 +140,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/27/leetcode-%E6%8E%92%E5%BA%8F%E4%B8%80/"/>
     <id>https://qingxuanmingye.github.io/2019/04/27/leetcode-排序一/</id>
     <published>2019-04-27T03:02:59.000Z</published>
-    <updated>2019-04-27T14:04:01.401Z</updated>
+    <updated>2019-06-20T05:22:34.972Z</updated>
     
     <summary type="html">
     
@@ -120,7 +155,7 @@
     
     </summary>
     
-      <category term="例行打卡" scheme="https://qingxuanmingye.github.io/categories/%E4%BE%8B%E8%A1%8C%E6%89%93%E5%8D%A1/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="排序" scheme="https://qingxuanmingye.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
@@ -132,7 +167,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/22/leetcodede-%E9%98%9F%E5%88%97/"/>
     <id>https://qingxuanmingye.github.io/2019/04/22/leetcodede-队列/</id>
     <published>2019-04-22T08:25:35.000Z</published>
-    <updated>2019-04-23T11:04:34.744Z</updated>
+    <updated>2019-06-20T05:22:23.466Z</updated>
     
     <summary type="html">
     
@@ -149,7 +184,7 @@
     
     </summary>
     
-      <category term="每日打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
@@ -163,7 +198,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/20/leetcode%20%E6%A0%88/"/>
     <id>https://qingxuanmingye.github.io/2019/04/20/leetcode 栈/</id>
     <published>2019-04-20T01:37:57.000Z</published>
-    <updated>2019-04-22T02:18:51.661Z</updated>
+    <updated>2019-06-20T05:22:04.117Z</updated>
     
     <summary type="html">
     
@@ -180,7 +215,7 @@
     
     </summary>
     
-      <category term="日常打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%97%A5%E5%B8%B8%E6%89%93%E5%8D%A1/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="栈" scheme="https://qingxuanmingye.github.io/tags/%E6%A0%88/"/>
@@ -192,7 +227,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/19/leetcode%20%E8%84%91%E7%AD%8B%E6%80%A5%E8%BD%AC%E5%BC%AF/"/>
     <id>https://qingxuanmingye.github.io/2019/04/19/leetcode 脑筋急转弯/</id>
     <published>2019-04-19T01:48:15.000Z</published>
-    <updated>2019-04-19T09:26:02.341Z</updated>
+    <updated>2019-06-20T05:21:54.603Z</updated>
     
     <summary type="html">
     
@@ -212,7 +247,7 @@
     
     </summary>
     
-      <category term="每日打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%AF%8F%E6%97%A5%E6%89%93%E5%8D%A1/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
@@ -224,7 +259,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/18/KMP%E7%AE%97%E6%B3%95%E6%A2%B3%E7%90%86/"/>
     <id>https://qingxuanmingye.github.io/2019/04/18/KMP算法梳理/</id>
     <published>2019-04-18T13:33:51.000Z</published>
-    <updated>2019-05-09T04:19:32.317Z</updated>
+    <updated>2019-06-20T05:24:13.575Z</updated>
     
     <summary type="html">
     
@@ -241,7 +276,7 @@
     
     </summary>
     
-      <category term="算法梳理" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95%E6%A2%B3%E7%90%86/"/>
+      <category term="算法" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
       <category term="KMP" scheme="https://qingxuanmingye.github.io/tags/KMP/"/>
@@ -253,7 +288,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/18/leetcode%EF%BC%8825-29%EF%BC%89/"/>
     <id>https://qingxuanmingye.github.io/2019/04/18/leetcode（25-29）/</id>
     <published>2019-04-18T01:36:18.000Z</published>
-    <updated>2019-04-18T13:25:41.860Z</updated>
+    <updated>2019-06-20T05:21:25.558Z</updated>
     
     <summary type="html">
     
@@ -272,7 +307,7 @@
     
     </summary>
     
-      <category term="日常打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%97%A5%E5%B8%B8%E6%89%93%E5%8D%A1/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
@@ -284,7 +319,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/17/leetcode%EF%BC%8816%EF%BC%8C17%EF%BC%8C18%EF%BC%8C20%EF%BC%8C22%EF%BC%89/"/>
     <id>https://qingxuanmingye.github.io/2019/04/17/leetcode（16，17，18，20，22）/</id>
     <published>2019-04-17T01:33:52.000Z</published>
-    <updated>2019-04-18T01:05:25.903Z</updated>
+    <updated>2019-06-20T05:21:42.348Z</updated>
     
     <summary type="html">
     
@@ -300,7 +335,7 @@
     
     </summary>
     
-      <category term="日常打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%97%A5%E5%B8%B8%E6%89%93%E5%8D%A1/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
@@ -312,7 +347,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/16/leetcode%EF%BC%8811~15%EF%BC%89/"/>
     <id>https://qingxuanmingye.github.io/2019/04/16/leetcode（11~15）/</id>
     <published>2019-04-16T04:52:45.000Z</published>
-    <updated>2019-04-16T14:43:45.362Z</updated>
+    <updated>2019-06-20T05:21:16.489Z</updated>
     
     <summary type="html">
     
@@ -326,7 +361,7 @@
     
     </summary>
     
-      <category term="日常打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%97%A5%E5%B8%B8%E6%89%93%E5%8D%A1/"/>
+      <category term="打卡" scheme="https://qingxuanmingye.github.io/categories/%E6%89%93%E5%8D%A1/"/>
     
     
       <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
@@ -338,7 +373,7 @@
     <link href="https://qingxuanmingye.github.io/2019/04/12/leetcode%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     <id>https://qingxuanmingye.github.io/2019/04/12/leetcode 动态规划/</id>
     <published>2019-04-12T07:28:57.000Z</published>
-    <updated>2019-04-22T07:55:57.212Z</updated>
+    <updated>2019-06-20T05:24:38.404Z</updated>
     
     <summary type="html">
     
@@ -352,7 +387,7 @@
     
     </summary>
     
-      <category term="动态规划" scheme="https://qingxuanmingye.github.io/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="算法" scheme="https://qingxuanmingye.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
       <category term="LeetCode" scheme="https://qingxuanmingye.github.io/tags/LeetCode/"/>
